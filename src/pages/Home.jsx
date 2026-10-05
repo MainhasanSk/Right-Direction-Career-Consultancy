@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { 
   Compass, 
   Target, 
@@ -19,12 +20,17 @@ import {
   Briefcase,
   Quote,
   Clock,
-  Laptop
+  Laptop,
+  Download,
+  Phone,
+  MapPin,
+  MessageSquare
 } from "lucide-react";
 import { siteContent } from "../data/content";
 import SectionHeading from "../components/SectionHeading";
 import { UpwardArrows, DirectionBadge } from "../components/ArrowMotif";
 import { useConsultationModal } from "../context/ConsultationModalContext";
+import ContactForm, { WhatsAppIcon } from "../components/ContactForm";
 
 export default function Home() {
   const { openConsultationModal } = useConsultationModal();
@@ -38,226 +44,115 @@ export default function Home() {
   return (
     <div className="overflow-hidden bg-[#FAFCFF]">
       {/* ========================================================================= */}
-      {/* HERO SECTION WITH RDCC OFFICIAL BRANDING                                 */}
+      {/* HERO SECTION WITH RESPONSIVE ARTWORK BACKGROUND                           */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-20 lg:pt-16 lg:pb-28 overflow-hidden border-b border-slate-200/80 bg-directional-pattern">
-        {/* Dynamic Luminous Background Glow Orbs */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-rdcc-cyan/25 via-rdcc-blue/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" style={{ animationDuration: '7s' }} />
-        <div className="absolute -bottom-10 left-10 w-[450px] h-[450px] bg-gradient-to-tr from-rdcc-blue/20 via-indigo-200/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-        <div className="absolute top-1/3 right-10 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none -z-10" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              {/* Floating Pill Tag with Glowing Dot */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-rdcc-cyan-light shadow-sm">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rdcc-blue opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rdcc-blue"></span>
-                </span>
-                <span className="text-xs font-bold text-rdcc-navy tracking-wide">
-                  The Right Direction Career Consultancy
-                </span>
-                <span className="w-1 h-3.5 bg-slate-200"></span>
-                <span className="text-[11px] font-extrabold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/60">
-                  {siteContent.home.hero.estd}
-                </span>
-              </div>
-
-              {/* Main Heading with Gradient Accent */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-heading font-extrabold text-rdcc-navy leading-[1.14] tracking-tight">
-                We Guide You For A{" "}
-                <span className="bg-gradient-to-r from-rdcc-blue via-rdcc-sky to-rdcc-navy bg-clip-text text-transparent">
-                  Better Future
-                </span>
+      <section className="relative overflow-hidden border-b border-slate-200/80">
+        {/* Background Layer - Mobile View (Portrait Artwork) */}
+        <div 
+          className="absolute inset-0 bg-cover bg-top sm:bg-center md:hidden pointer-events-none"
+          style={{ backgroundImage: "url('/images/hero-mobile.jpg')" }}
+        />
+        {/* Background Layer - Tablet & Desktop (Panoramic Artwork) */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center lg:bg-[center_right] hidden md:block pointer-events-none"
+          style={{ backgroundImage: "url('/images/hero-illustration.png')" }}
+        />
+        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-4 sm:space-y-5 text-left"
+          >
+            {/* Tagline / Kicker */}
+            <div className="text-xs sm:text-sm font-bold tracking-[0.22em] text-slate-700 uppercase">
+              GUIDANCE TODAY
+            </div>
+            
+            {/* Main Headline */}
+            <div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-[70px] font-extrabold font-heading leading-[1.02] tracking-tight">
+                <span className="text-[#0A2540] block">A BRIGHTER</span>
+                <span className="text-[#2583E8] block mt-1">TOMORROW</span>
               </h1>
-
-              {/* EXACT SUPPORTING CONTENT */}
-              <p className="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-                {siteContent.home.hero.subheading}
-              </p>
-
-              {/* CTAs with Shimmer and Elevation */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <button
-                  type="button"
-                  onClick={() => openConsultationModal()}
-                  className="btn-shimmer w-full sm:w-auto px-8 py-4 rounded-xl bg-rdcc-blue hover:bg-rdcc-blue-hover text-white font-bold text-base shadow-xl shadow-rdcc-blue/30 hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2.5 group transform hover:-translate-y-1"
-                >
-                  <span>{siteContent.home.hero.ctaPrimary}</span>
-                  <ArrowUpRight className="w-5 h-5 text-rdcc-cyan-light group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </button>
-
-                <Link
-                  to="/services"
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-rdcc-navy font-bold text-base border-2 border-slate-200 hover:border-rdcc-blue/50 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
-                >
-                  <span>{siteContent.home.hero.ctaSecondary}</span>
-                  <ArrowRight className="w-4 h-4 text-rdcc-blue" />
-                </Link>
-              </div>
-
-              {/* Quick Pillars Feature Bar with CUSTOM SARATHI & HATE HAT DHORI IMAGES */}
-              <div className="pt-6 border-t border-slate-200/90 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-                {/* SARATHI Feature Card */}
-                <Link
-                  to="/services#sarathi"
-                  className="group flex items-center gap-3.5 p-3 rounded-2xl bg-white hover:bg-rdcc-cyan-soft border border-slate-200/90 hover:border-rdcc-blue/40 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
-                >
-                  <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-rdcc-cyan-light shadow-sm flex-shrink-0 bg-white p-0.5 group-hover:scale-105 transition-transform duration-300">
-                    <img
-                      src="/images/sarathi-hero-icon.jpg"
-                      alt="SARATHI Guidance Chariot Emblem"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-heading font-extrabold text-rdcc-navy group-hover:text-rdcc-blue transition-colors">
-                        SARATHI
-                      </span>
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rdcc-cyan-ice text-rdcc-blue border border-rdcc-cyan/40">
-                        Class 8–12
-                      </span>
-                    </div>
-                    <div className="text-xs text-slate-500 font-medium truncate mt-0.5">
-                      Academic Guidance & Mentoring
-                    </div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-rdcc-blue group-hover:translate-x-1 transition-all flex-shrink-0" />
-                </Link>
-
-                {/* HATE HAT DHORI Feature Card */}
-                <Link
-                  to="/services#hate-hat-dhori"
-                  className="group flex items-center gap-3.5 p-3 rounded-2xl bg-white hover:bg-amber-50/50 border border-slate-200/90 hover:border-amber-400/50 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
-                >
-                  <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-amber-200 shadow-sm flex-shrink-0 bg-white p-0.5 group-hover:scale-105 transition-transform duration-300">
-                    <img
-                      src="/images/hatehatdhori-hero-icon.jpg"
-                      alt="HATE HAT DHORI Women Mentoring Emblem"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-heading font-extrabold text-rdcc-navy group-hover:text-amber-800 transition-colors">
-                        HATE HAT DHORI
-                      </span>
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300/60">
-                        Women
-                      </span>
-                    </div>
-                    <div className="text-xs text-slate-500 font-medium truncate mt-0.5">
-                      Guidance & Mentoring for Women
-                    </div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-700 group-hover:translate-x-1 transition-all flex-shrink-0" />
-                </Link>
-              </div>
+              {/* Gold Accent Underline */}
+              <div className="w-40 sm:w-56 h-[3.5px] bg-[#E8A025] rounded-full mt-3 mb-2"></div>
+            </div>
+            
+            {/* Paragraph */}
+            <p className="text-sm sm:text-base md:text-[17px] text-slate-700 leading-relaxed max-w-xl font-medium">
+              We provide guidance, mentoring and training to help individuals discover their potential, make informed decisions and move forward with clarity and confidence.
+            </p>
+            
+            {/* Action Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+              <Link
+                to="/services"
+                className="px-7 py-3.5 rounded-full bg-[#0A2540] hover:bg-[#143B66] text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group"
+              >
+                <span>Explore Our Services</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              
+              <a
+                href="/The Right Direction Career Consultancy Brochure (4).pdf (2).pdf"
+                download="The Right Direction Career Consultancy Brochure (4).pdf (2).pdf"
+                className="px-7 py-3.5 rounded-full bg-white/95 hover:bg-white text-[#0A2540] font-bold text-xs sm:text-sm border-2 border-[#0A2540] shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 group cursor-pointer"
+              >
+                <Download className="w-4 h-4 text-[#0A2540] group-hover:scale-110 transition-transform" />
+                <span>Download Brochure</span>
+              </a>
             </div>
 
-            {/* Right Visual Showcase Column */}
-            <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-md">
-                {/* Floating Top Chip with SARATHI Chariot Image */}
-                <Link
-                  to="/services#sarathi"
-                  className="absolute -top-6 -left-4 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-rdcc-cyan-light shadow-xl text-xs font-bold text-rdcc-navy hover:scale-105 transition-transform"
-                >
-                  <div className="w-8 h-8 rounded-lg overflow-hidden border border-rdcc-blue/40 shadow-sm">
-                    <img
-                      src="/images/sarathi-hero-icon.jpg"
-                      alt="SARATHI Mini Icon"
-                      className="w-full h-full object-cover"
-                    />
+            {/* Bottom Guidance Cards */}
+            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl xl:max-w-2xl">
+              {/* SARATHI Card */}
+              <Link
+                to="/services#sarathi"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-[#EBF4FE]/95 backdrop-blur-md hover:bg-[#E1EDFC] border border-[#D5E6F9] transition-all group shadow-sm hover:shadow"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-10 h-10 rounded-full bg-[#D6E8FB] flex items-center justify-center flex-shrink-0 text-[#0A2540] border border-blue-200">
+                    <GraduationCap className="w-5 h-5 text-[#0A2540]" />
                   </div>
-                  <div>
-                    <div className="text-[11px] font-extrabold text-rdcc-blue">SARATHI</div>
-                    <div className="text-[9px] text-slate-500">Classes 8–12 Guidance</div>
-                  </div>
-                </Link>
-
-                {/* Floating Bottom Chip with HATE HAT DHORI Women Image */}
-                <Link
-                  to="/services#hate-hat-dhori"
-                  className="absolute -bottom-6 -right-4 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-amber-300 shadow-xl text-xs font-bold text-amber-950 hover:scale-105 transition-transform"
-                >
-                  <div className="w-8 h-8 rounded-lg overflow-hidden border border-amber-400 shadow-sm">
-                    <img
-                      src="/images/hatehatdhori-hero-icon.jpg"
-                      alt="Hate Hat Dhori Mini Icon"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-extrabold text-amber-800">HATE HAT DHORI</div>
-                    <div className="text-[9px] text-slate-500">Women Mentoring</div>
-                  </div>
-                </Link>
-
-                {/* Main Showcase Card */}
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-[32px] p-8 shadow-2xl border-2 border-rdcc-cyan-light/80 overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-rdcc-navy via-rdcc-blue to-rdcc-cyan" />
-                  <div className="absolute -top-16 -right-16 w-52 h-52 bg-gradient-to-bl from-rdcc-cyan/20 to-transparent rounded-full blur-2xl pointer-events-none" />
-
-                  {/* Header Row inside card */}
-                  <div className="flex items-center justify-between pb-6 border-b border-slate-100">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-600">
-                        Official RDCC Portal
-                      </span>
+                  <div className="min-w-0">
+                    <div className="text-sm font-extrabold text-[#0A2540] leading-none mb-1">
+                      SARATHI
                     </div>
-                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-rdcc-cyan-ice text-rdcc-navy border border-rdcc-cyan/40">
-                      Guwahati-24
-                    </span>
-                  </div>
-
-                  {/* Official Logo Showcase (UNCROPPED, NO ROUND SHAPE) */}
-                  <div className="py-6 flex flex-col items-center text-center relative">
-                    <div className="relative mb-6 flex items-center justify-center">
-                      <div className="p-3 bg-white rounded-2xl border border-slate-200/90 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <img
-                          src={siteContent.brand.logo}
-                          alt="The Right Direction Official Logo"
-                          className="w-36 h-36 sm:w-40 sm:h-40 object-contain"
-                        />
-                      </div>
-                      <div className="absolute -bottom-2.5 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md px-3 py-1 text-xs font-black shadow-md border border-white">
-                        ESTD. 2020
-                      </div>
+                    <div className="text-[10.5px] text-slate-600 font-medium leading-tight">
+                      Academic Guidance, Career Counselling & Mentoring for Students (Class 8 to 12)
                     </div>
-
-                    <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-rdcc-navy tracking-tight">
-                      {siteContent.brand.name}
-                    </h2>
-                    <p className="text-xs font-bold uppercase tracking-widest text-rdcc-blue mt-1">
-                      {siteContent.brand.tagline}
-                    </p>
-                    
-                    <div className="mt-4 p-3 rounded-2xl bg-gradient-to-r from-rdcc-cyan-soft to-slate-50 border border-rdcc-cyan-light text-slate-700 text-xs font-semibold italic shadow-inner">
-                      "{siteContent.brand.motto}"
-                    </div>
-                  </div>
-
-                  {/* Card Action Hint */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                    <span className="font-semibold text-rdcc-navy">Assam & Northeast India</span>
-                    <Link to="/about" className="text-rdcc-blue font-bold flex items-center gap-1 hover:underline">
-                      <span>Learn More</span>
-                      <span>→</span>
-                    </Link>
                   </div>
                 </div>
-
-                <div className="absolute -bottom-8 -left-8 -z-10 opacity-80 pointer-events-none">
-                  <UpwardArrows className="w-40 h-40 text-rdcc-cyan/40" />
+                <div className="w-7 h-7 rounded-full bg-[#0A2540] flex items-center justify-center flex-shrink-0 ml-2 group-hover:scale-105 transition-transform shadow-xs">
+                  <ArrowRight className="w-3.5 h-3.5 text-white" />
                 </div>
-              </div>
+              </Link>
+              
+              {/* HATE HAT DHORI Card */}
+              <Link
+                to="/services#hate-hat-dhori"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FDF0F4]/95 backdrop-blur-md hover:bg-[#FBE4EB] border border-[#F6D8E1] transition-all group shadow-sm hover:shadow"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-10 h-10 rounded-full bg-[#F9DCE4] flex items-center justify-center flex-shrink-0 text-[#C03A62] border border-pink-200">
+                    <Users className="w-5 h-5 text-[#C03A62]" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-sm font-extrabold text-[#C03A62] leading-none mb-1">
+                      HATE HAT DHORI
+                    </div>
+                    <div className="text-[10.5px] text-slate-600 font-medium leading-tight">
+                      Guidance & Mentoring for Women Entrepreneurs
+                    </div>
+                  </div>
+                </div>
+                <div className="w-7 h-7 rounded-full bg-[#C03A62] flex items-center justify-center flex-shrink-0 ml-2 group-hover:scale-105 transition-transform shadow-xs">
+                  <ArrowRight className="w-3.5 h-3.5 text-white" />
+                </div>
+              </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -266,7 +161,13 @@ export default function Home() {
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50/80 border-b border-slate-200/70 relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-rdcc-navy via-rdcc-navy-light to-rdcc-navy text-white rounded-[32px] p-8 sm:p-14 shadow-2xl overflow-hidden border border-rdcc-cyan/30 text-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-gradient-to-br from-rdcc-navy via-rdcc-navy-light to-rdcc-navy text-white rounded-[32px] p-8 sm:p-14 shadow-2xl overflow-hidden border border-rdcc-cyan/30 text-center"
+          >
             <div className="absolute top-0 right-0 w-96 h-96 bg-rdcc-cyan/20 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-rdcc-blue/30 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute top-6 right-8 opacity-25">
@@ -293,52 +194,152 @@ export default function Home() {
                 <span className="w-8 h-px bg-rdcc-cyan/40"></span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* OUR MISSION SECTION (Glowing 4-Pillar Grid)                               */}
+      {/* OUR MISSION SECTION (HIGH-AESTHETIC 4-PILLAR SHOWCASE)                   */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-white border-b border-slate-200/70 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 sm:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-slate-200/70 relative overflow-hidden">
+        {/* Ambient background glow orbs */}
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none -z-0" />
+        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-sky-100/40 rounded-full blur-3xl pointer-events-none -z-0" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeading
             badge="Guiding Principles"
-            title={siteContent.home.mission.heading}
-            subtitle="The foundational commitments that direct our counselling, training, and community initiatives."
+            title="Our Mission & Foundational Commitments"
+            subtitle="The core values that guide our student counselling, women's mentoring, and community outreach."
             centered={true}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {siteContent.home.mission.items.map((item, index) => (
-              <div
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 mt-12">
+            {[
+              {
+                num: "01",
+                tag: "Integrity & Trust",
+                title: "Ethical & Empathetic Guidance",
+                quote: "To provide ethical and empathetic guidance.",
+                desc: "Delivering honest, unbiased counsel rooted in deep listening and authentic empathy for each individual's journey.",
+                icon: <Compass className="w-6 h-6 text-blue-600" />,
+                badge: "bg-blue-50 text-blue-700 border-blue-200/80",
+                iconBox: "bg-blue-50/80 border-blue-200 text-blue-600",
+                accentBar: "bg-gradient-to-r from-blue-500 to-indigo-600",
+                hoverBorder: "hover:border-blue-300 hover:shadow-blue-500/10",
+              },
+              {
+                num: "02",
+                tag: "Student Empowerment",
+                title: "Informed Career Choices",
+                quote: "To empower students to make informed career choices.",
+                desc: "Equipping young minds in Classes 8–12 with scientific stream selection, aptitude clarity, and clear future roadmaps.",
+                icon: <Target className="w-6 h-6 text-sky-600" />,
+                badge: "bg-sky-50 text-sky-700 border-sky-200/80",
+                iconBox: "bg-sky-50/80 border-sky-200 text-sky-600",
+                accentBar: "bg-gradient-to-r from-sky-400 to-blue-500",
+                hoverBorder: "hover:border-sky-300 hover:shadow-sky-500/10",
+              },
+              {
+                num: "03",
+                tag: "Hate Hat Dhori",
+                title: "Women's Independence",
+                quote: "To support women in building confidence and independence.",
+                desc: "Nurturing women entrepreneurs with practical mentorship, confidence building, and the direction to build sustainable ventures.",
+                icon: <Sparkles className="w-6 h-6 text-amber-600" />,
+                badge: "bg-amber-50 text-amber-800 border-amber-200/80",
+                iconBox: "bg-amber-50/80 border-amber-200 text-amber-600",
+                accentBar: "bg-gradient-to-r from-amber-400 to-rose-500",
+                hoverBorder: "hover:border-amber-300 hover:shadow-amber-500/10",
+              },
+              {
+                num: "04",
+                tag: "Compassionate Ecosystem",
+                title: "Compassion Meets Guidance",
+                quote: "To create a supportive ecosystem where guidance meets compassion.",
+                desc: "Building an accessible community platform where students, parents, and educators collaborate so no one walks alone.",
+                icon: <HeartHandshake className="w-6 h-6 text-emerald-600" />,
+                badge: "bg-emerald-50 text-emerald-700 border-emerald-200/80",
+                iconBox: "bg-emerald-50/80 border-emerald-200 text-emerald-600",
+                accentBar: "bg-gradient-to-r from-emerald-400 to-teal-500",
+                hoverBorder: "hover:border-emerald-300 hover:shadow-emerald-500/10",
+              },
+            ].map((pillar, index) => (
+              <motion.div
                 key={index}
-                className="group bg-white rounded-3xl p-7 shadow-card hover:shadow-card-hover border border-slate-200/90 hover:border-rdcc-blue/50 transition-all duration-300 relative flex flex-col justify-between card-glow-hover"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`group bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-xl border border-slate-200/80 transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-2 relative ${pillar.hoverBorder}`}
               >
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-rdcc-cyan-ice to-white text-rdcc-blue flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300 border border-rdcc-cyan-light/60">
-                    {missionIcons[index]}
-                  </div>
-                  <span className="text-xs font-black text-slate-300 group-hover:text-rdcc-blue transition-colors">
-                    0{index + 1}
-                  </span>
-                </div>
+                {/* Top Glowing Accent Color Bar */}
+                <div className={`h-1.5 w-full ${pillar.accentBar} transition-all duration-300 group-hover:h-2.5`} />
 
-                <div className="space-y-2">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-rdcc-blue">
-                    Mission Pillar 0{index + 1}
-                  </div>
-                  <h3 className="text-base sm:text-lg font-heading font-bold text-rdcc-navy leading-snug">
-                    {item}
-                  </h3>
-                </div>
+                <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    {/* Card Header: Icon & Big Watermark Number */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border shadow-xs group-hover:scale-110 transition-transform duration-300 ${pillar.iconBox}`}>
+                        {pillar.icon}
+                      </div>
+                      <span className="text-3xl font-black font-heading text-slate-200 group-hover:text-slate-300 transition-colors">
+                        {pillar.num}
+                      </span>
+                    </div>
 
-                <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
-                  <span className="font-medium">Core Commitment</span>
-                  <span className="text-rdcc-blue font-bold">↗</span>
+                    {/* Pillar Category Badge */}
+                    <div className="mb-3">
+                      <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10.5px] font-extrabold uppercase tracking-wide border ${pillar.badge}`}>
+                        {pillar.tag}
+                      </span>
+                    </div>
+
+                    {/* Main Title & Verbatim Quote */}
+                    <div className="space-y-1.5 mb-3">
+                      <h3 className="text-lg font-heading font-extrabold text-[#0A2540] group-hover:text-rdcc-blue transition-colors leading-snug">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-xs font-semibold italic text-slate-500 leading-snug">
+                        "{pillar.quote}"
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Engaging Short Description */}
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
+                    {pillar.desc}
+                  </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
+          </div>
+
+          {/* Bottom Commitment Assurance Banner */}
+          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#0A2540] via-[#0E355F] to-[#0A2540] text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-white/10">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="space-y-1.5 text-center md:text-left z-10">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#E8A025] inline-flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#E8A025]" />
+                Our Core Philosophy
+              </span>
+              <h4 className="text-xl sm:text-2xl font-heading font-extrabold text-white">
+                "Direction Before Speed, Empathy Before Advice."
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+                Every counselling session, student workshop, and women's mentoring cohort is structured around these 4 pillars to deliver measurable, life-changing guidance.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => openConsultationModal()}
+              className="z-10 flex-shrink-0 px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#0A2540] font-bold text-sm shadow-lg hover:shadow-xl transition-all flex items-center gap-2 transform hover:-translate-y-0.5 cursor-pointer"
+            >
+              <span>Book A Guidance Session</span>
+              <ArrowRight className="w-4 h-4 text-[#0A2540]" />
+            </button>
           </div>
         </div>
       </section>
@@ -463,16 +464,6 @@ export default function Home() {
                       </span>
                     </div>
 
-                    <div className="absolute bottom-2.5 right-2.5 flex items-center gap-2 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-md border border-rdcc-blue/30 shadow-md">
-                      <div className="w-7 h-7 rounded-lg overflow-hidden border border-rdcc-blue/30">
-                        <img
-                          src="/images/sarathi-hero-icon.jpg"
-                          alt="SARATHI Chariot Logo"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <span className="text-[11px] font-extrabold text-rdcc-navy">SARATHI Logo</span>
-                    </div>
                   </div>
                 </div>
 
@@ -536,16 +527,6 @@ export default function Home() {
                       </span>
                     </div>
 
-                    <div className="absolute bottom-2.5 right-2.5 flex items-center gap-2 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-md border border-amber-400/50 shadow-md">
-                      <div className="w-7 h-7 rounded-lg overflow-hidden border border-amber-400/40">
-                        <img
-                          src="/images/hatehatdhori-hero-icon.jpg"
-                          alt="HATE HAT DHORI Women Logo"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <span className="text-[11px] font-extrabold text-amber-950">Hate Hat Dhori Logo</span>
-                    </div>
                   </div>
                 </div>
 
@@ -601,33 +582,59 @@ export default function Home() {
             centered={true}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-9 mt-12 sm:mt-16">
             {siteContent.services.serviceDelivery.pillars.map((pillar, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-3xl p-7 shadow-card hover:shadow-card-hover border border-slate-200/90 hover:border-rdcc-blue/40 transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-card hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-rdcc-cyan-ice text-rdcc-blue border border-rdcc-cyan/40">
-                      {pillar.badge}
-                    </span>
-                    <span className="text-xs font-black text-slate-300">0{idx + 1}</span>
+                {/* Visual Image Header with Floating Badges & Hover Zoom */}
+                <div className="relative w-full aspect-[16/9] overflow-hidden bg-slate-100">
+                  <img
+                    src={pillar.image}
+                    alt={pillar.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent opacity-30 group-hover:opacity-10 transition-opacity duration-500" />
+                  
+                  {/* Floating Pillar Badge */}
+                  <span className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-white/95 backdrop-blur-md text-rdcc-blue shadow-md border border-white/60">
+                    {pillar.badge}
+                  </span>
+
+                  {/* Number Badge */}
+                  <span className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-900/60 backdrop-blur-md text-white font-black text-xs flex items-center justify-center border border-white/20 shadow-md">
+                    0{idx + 1}
+                  </span>
+                </div>
+
+                {/* Content Details */}
+                <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between bg-white">
+                  <div>
+                    <h3 className="text-xl sm:text-[22px] font-heading font-extrabold text-rdcc-navy group-hover:text-rdcc-blue transition-colors duration-300 leading-snug mb-3">
+                      {pillar.title}
+                    </h3>
+
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                      {pillar.content}
+                    </p>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-rdcc-navy mb-2.5">
-                    {pillar.title}
-                  </h3>
-
-                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                    {pillar.content}
-                  </p>
+                  {/* Interactive Card Footer */}
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <span>Structured Approach</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-sky-50 text-rdcc-blue group-hover:bg-rdcc-blue group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 shadow-xs">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
-                  <span>Structured Approach</span>
-                  <CheckCircle2 className="w-4 h-4 text-rdcc-blue" />
-                </div>
+                {/* Bottom Border Glow on Hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rdcc-blue via-rdcc-cyan to-amber-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
             ))}
           </div>
@@ -665,6 +672,15 @@ export default function Home() {
                 }`}
               >
                 <div>
+                  {cat.image && (
+                    <div className="w-full h-40 sm:h-48 mb-6 rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm relative group">
+                      <img 
+                        src={cat.image} 
+                        alt={cat.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                  )}
                   <div className="flex items-center justify-between mb-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                       cat.color === 'amber' ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-rdcc-cyan-ice text-rdcc-blue border border-rdcc-cyan/40'
@@ -699,20 +715,6 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                </div>
-
-                <div className="mt-8 pt-5 border-t border-slate-200/80">
-                  <Link
-                    to={`/contact?service=${encodeURIComponent(cat.title)}`}
-                    className={`w-full py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-sm ${
-                      cat.color === 'amber'
-                        ? 'bg-amber-600 hover:bg-amber-700 text-white'
-                        : 'bg-rdcc-blue hover:bg-rdcc-blue-hover text-white'
-                    }`}
-                  >
-                    <span>Enquire For This Programme</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
                 </div>
               </div>
             ))}
@@ -808,37 +810,139 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* BOTTOM CONSULTATION PROMPT                                                */}
+      {/* OPEN CONTACT FORM & WHATSAPP GUIDANCE (ABOVE FOOTER)                      */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-gradient-to-br from-rdcc-cyan-ice to-white text-rdcc-blue mx-auto shadow-md border border-rdcc-cyan-light">
-            <Compass className="w-8 h-8" />
+      <section id="contact-form" className="py-16 sm:py-24 bg-gradient-to-b from-[#FAFCFF] via-white to-slate-50 border-t border-slate-200/80 relative overflow-hidden">
+        {/* Decorative background glow accents */}
+        <div className="absolute -top-32 right-0 w-96 h-96 bg-rdcc-blue/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold uppercase tracking-wider shadow-xs">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span>Direct WhatsApp Guidance & Contact</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-rdcc-navy tracking-tight">
+              Get in Touch with <span className="text-gradient">Our Mentors</span>
+            </h2>
+
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Have questions regarding student academic streams, career choices, or women mentoring programs? Fill out the open form below and we will receive your enquiry directly on our WhatsApp for immediate assistance.
+            </p>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-rdcc-navy">
-            Take the Right Direction for Your Career & Education
-          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Left Column: Guidance Promise & Direct Channels (5 cols) */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Highlight Card */}
+              <div className="bg-gradient-to-br from-rdcc-navy via-[#0c2f55] to-rdcc-navy text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden border border-white/10">
+                <div className="absolute top-0 right-0 -mr-10 -mt-10 w-44 h-44 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+                <div className="relative z-10 space-y-5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="px-3 py-1 rounded-full bg-white/10 text-rdcc-gold text-xs font-bold uppercase tracking-wider border border-white/15">
+                      Personalized Counselling
+                    </span>
+                  </div>
 
-          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            At The Right Direction Career Consultancy, we believe the right guidance at the right time can transform lives. Connect with us for personal or group counselling sessions.
-          </p>
+                  <h3 className="text-xl sm:text-2xl font-heading font-bold text-white leading-snug">
+                    Take the Right Step Toward Your Future Today
+                  </h3>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => openConsultationModal()}
-              className="btn-shimmer w-full sm:w-auto px-9 py-4 rounded-xl bg-rdcc-blue hover:bg-rdcc-blue-hover text-white font-bold text-base shadow-xl shadow-rdcc-blue/25 transition-all duration-300 transform hover:-translate-y-0.5"
-            >
-              Book a Consultation
-            </button>
+                  <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
+                    At The Right Direction Career Consultancy, we listen first, understand each individual journey, and guide with patience and empathy.
+                  </p>
 
-            <a
-              href={`tel:${siteContent.contact.phones[0].replace(/\s+/g, '')}`}
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-base transition-all duration-300"
-            >
-              Call {siteContent.contact.phones[0]}
-            </a>
+                  <div className="space-y-3 pt-1">
+                    <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-200">
+                      <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-4 h-4" />
+                      </div>
+                      <span><strong>Fast Response on WhatsApp:</strong> Instant acknowledgement from our advisory team.</span>
+                    </div>
+
+                    <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-200">
+                      <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-4 h-4" />
+                      </div>
+                      <span><strong>Confidential & Empathetic:</strong> A comfortable space to discuss aspirations and doubts.</span>
+                    </div>
+
+                    <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-200">
+                      <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-4 h-4" />
+                      </div>
+                      <span><strong>Certified Guidance:</strong> Led by Mrs. Rashmi Rekha Kakoty (Global Career Counsellor).</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct Quick Action Buttons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a
+                  href={`https://wa.me/${siteContent.contact.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent("Hello RDCC Team, I would like to enquire about your guidance services.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-[1.02] cursor-pointer"
+                >
+                  <WhatsAppIcon className="w-4 h-4 fill-white" />
+                  <span>WhatsApp Direct</span>
+                </a>
+
+                <a
+                  href={`tel:${siteContent.contact.phones[0].replace(/\s+/g, '')}`}
+                  className="py-3 px-4 rounded-2xl bg-rdcc-navy hover:bg-rdcc-blue text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-[1.02] cursor-pointer"
+                >
+                  <Phone className="w-4 h-4 text-rdcc-cyan-light" />
+                  <span>Call Us Now</span>
+                </a>
+              </div>
+
+              {/* Contact Information & Centre Details */}
+              <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm space-y-3">
+                <div className="flex items-start gap-3 text-xs text-slate-600">
+                  <MapPin className="w-4 h-4 text-rdcc-blue flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-slate-800 block">Consultancy Office:</span>
+                    <span>{siteContent.contact.address}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 text-xs text-slate-600">
+                  <Clock className="w-4 h-4 text-rdcc-blue flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-slate-800 block">Office Hours:</span>
+                    <span>Monday - Saturday: 10:00 AM - 6:00 PM</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-500">Need a structured 1-on-1 session?</span>
+                  <button
+                    type="button"
+                    onClick={() => openConsultationModal()}
+                    className="text-xs font-bold text-rdcc-blue hover:underline cursor-pointer"
+                  >
+                    Book Full Session →
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Open Contact Form (7 cols) */}
+            <div className="lg:col-span-7">
+              <ContactForm 
+                title="Send Us a Message on WhatsApp"
+                subtitle="Fill out this form and tap send. We will immediately receive your request on our WhatsApp."
+                badge="Open Contact Form"
+              />
+            </div>
           </div>
         </div>
       </section>

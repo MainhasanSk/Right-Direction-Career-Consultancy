@@ -14,7 +14,6 @@ export const siteContent = {
     address: "Hatigarh Chariali, Guwahati-24, Assam",
     phones: ["+91 7002451388", "+91 9864037214"],
     email: "rightdirection.in@gmail.com",
-    website: "https://therightdirection.co.in",
     social: {
       facebook: "https://www.facebook.com/RDCCOfficial",
       facebookHandle: "rdccOfficial",
@@ -244,6 +243,7 @@ export const siteContent = {
           subtitle: "Career Guidance & Mentoring Program For Students of Class 8 to 12",
           badge: "Students & Parents",
           color: "blue",
+          image: "/images/sarathi.jpeg",
           for: [
             "Students of Classes 8-12 who need academic and career guidance.",
             "Students who are confused about subjects, streams, courses or career options.",
@@ -257,6 +257,7 @@ export const siteContent = {
           subtitle: "School Community & Ongoing Awareness Initiative",
           badge: "Schools & Educational Institutions",
           color: "sky",
+          image: "/images/sarathi-career-club.jpg",
           for: [
             "Schools and educational institutions looking to provide regular career awareness to their students.",
             "Students of Classes 9-12 who want continuous exposure to careers, courses and opportunities.",
@@ -270,6 +271,7 @@ export const siteContent = {
           subtitle: "হাতে হাত ধৰি • Empowering Women Entrepreneurs of Assam",
           badge: "Women & Aspiring Entrepreneurs",
           color: "amber",
+          image: "/images/hatehatdhori.jpeg",
           for: [
             "Women who want to start or grow a small business.",
             "Women who have a skill, talent or idea but need direction to take it forward.",
@@ -290,36 +292,42 @@ export const siteContent = {
         {
           title: "Continuous Mentoring",
           badge: "Ongoing Partnership",
+          image: "/images/service-continuous-mentoring.jpg",
           content:
             "Our mentoring programmes are designed as a series of sessions rather than a one-time service. Participants can continue to seek guidance as they progress through their journey.",
         },
         {
           title: "Expert-led Programmes",
           badge: "Domain Specialists",
+          image: "/images/service-expert-led.jpg",
           content:
             "RDCC also invites professionals and experts from different fields to conduct specialised training sessions, talks and workshops based on the requirements of our participants.",
         },
         {
           title: "SARATHI Continuous Mentoring",
           badge: "School to College Admissions",
+          image: "/images/service-sarathi-mentoring.jpg",
           content:
             "Once a student registers with SARATHI, RDCC provides continuous academic and career mentoring from the school years through the UG admission process, according to the student's needs.",
         },
         {
           title: "Workshops, Seminars & Presentations",
           badge: "Offline & Online Modes",
+          image: "/images/service-workshops.jpg",
           content:
             "Most of our programmes are conducted as one-day or two-day sessions. These may be organised in offline or online mode, depending on the programme and participants.",
         },
         {
           title: "HATE HAT DHORI Ongoing Support",
           badge: "Long-term Entrepreneurship",
+          image: "/images/service-hatehatdhori.jpg",
           content:
             "Once a woman registers with the programme, she can continue to receive mentoring and guidance throughout her entrepreneurial or professional journey. She may access the mentoring support for as long as she needs it.",
         },
         {
           title: "Individual & Group Delivery",
           badge: "Flexible Formats",
+          image: "/images/service-individual-group.jpg",
           content:
             "Services may be provided individually or in groups, depending on the nature of the programme, ensuring personalized attention for every participant.",
         },
@@ -381,21 +389,6 @@ export const siteContent = {
         "Along with its regular professional services and programmes, RDCC also undertakes selected free community-oriented activities whenever possible.",
         "These may include awareness sessions, educational guidance, information-sharing initiatives and programmes for students and young people who may not otherwise have easy access to such support.",
         "Our aim is to make useful guidance and information accessible beyond our regular paid services and to contribute, in our own small way, to the community.",
-      ],
-    },
-    blogPosts: {
-      heading: "Our Blog Posts, Educational Articles & News Publications",
-      badge: "Knowledge Sharing • Since 2023",
-      description: [
-        "Since 2023, RDCC has been regularly contributing articles and educational content through different news journals and publications in Assam, as well as through various social media platforms and groups.",
-        "The articles mainly cover education, career choices, student development, career opportunities and topics of interest to young people and the community.",
-      ],
-      topics: [
-        "Higher education pathways & entrance exam awareness",
-        "Informed stream & subject selection guidance",
-        "Student personal development & emotional resilience",
-        "Emerging 21st-century career opportunities in Assam & India",
-        "Parental guidance & supportive family dialogue",
       ],
     },
   },

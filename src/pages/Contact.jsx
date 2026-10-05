@@ -4,7 +4,6 @@ import {
   MapPin, 
   Phone, 
   Mail, 
-  Globe, 
   MessageSquare, 
   Clock, 
   CheckCircle2, 
@@ -156,26 +155,6 @@ export default function Contact() {
                       className="text-slate-800 hover:text-rdcc-blue font-semibold text-base mt-0.5 block break-all transition-colors"
                     >
                       {siteContent.contact.email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Website */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-rdcc-cyan-ice text-rdcc-blue flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Globe className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      Official Website
-                    </h4>
-                    <a
-                      href={siteContent.contact.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-rdcc-blue hover:underline font-semibold text-base mt-0.5 block"
-                    >
-                      {siteContent.contact.website}
                     </a>
                   </div>
                 </div>

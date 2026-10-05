@@ -5,7 +5,6 @@ import {
   Sparkles, 
   CheckCircle2, 
   ArrowRight, 
-  ArrowUpRight, 
   Users, 
   School, 
   Briefcase, 
@@ -22,10 +21,8 @@ import {
 import { siteContent } from "../data/content";
 import SectionHeading from "../components/SectionHeading";
 import { UpwardArrows, DirectionBadge } from "../components/ArrowMotif";
-import { useConsultationModal } from "../context/ConsultationModalContext";
 
 export default function Services() {
-  const { openConsultationModal } = useConsultationModal();
   return (
     <div className="bg-white">
       {/* ========================================================================= */}
@@ -90,18 +87,7 @@ export default function Services() {
                       alt="SARATHI Career Guidance & Mentoring Programme"
                       className="w-full h-full object-contain drop-shadow-sm group-hover:scale-[1.02] transition-transform duration-500"
                     />
-                    
-                    {/* Overlapping Emblem Logo */}
-                    <div className="absolute bottom-2 right-2 flex items-center gap-2 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-md border border-rdcc-blue/30 shadow-md">
-                      <div className="w-7 h-7 rounded-lg overflow-hidden border border-rdcc-blue/30">
-                        <img
-                          src="/images/sarathi-hero-icon.jpg"
-                          alt="SARATHI Chariot Logo"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <span className="text-[11px] font-extrabold text-rdcc-navy">SARATHI Logo</span>
-                    </div>
+
                   </div>
                 </div>
                 <div className="p-3.5 sm:p-4 bg-white/95 backdrop-blur-sm border-t border-sky-100 flex items-center justify-between text-xs text-slate-600">
@@ -110,11 +96,11 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* Who is SARATHI for? Mini Card */}
+              {/* Who Can Benefit from SARATHI? Mini Card */}
               <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-3">
                 <h4 className="text-sm font-heading font-bold text-rdcc-navy flex items-center gap-2">
                   <Users className="w-4 h-4 text-rdcc-blue" />
-                  <span>Who is SARATHI For?</span>
+                  <span>Who Can Benefit from SARATHI?</span>
                 </h4>
                 <div className="space-y-2">
                   {siteContent.services.targetAudience.categories[0].for.map((item, idx) => (
@@ -124,16 +110,6 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  to="/contact?service=SARATHI"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-rdcc-blue hover:bg-rdcc-blue-hover text-white font-semibold text-sm shadow-md transition-all duration-200"
-                >
-                  <span>Enquire About SARATHI</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
 
@@ -220,18 +196,7 @@ export default function Services() {
                       alt="Hate Hat Dhori Women Mentoring Program Banner"
                       className="w-full h-full object-contain drop-shadow-sm group-hover:scale-[1.02] transition-transform duration-500"
                     />
-                    
-                    {/* Overlapping Emblem Logo */}
-                    <div className="absolute bottom-2 right-2 flex items-center gap-2 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-md border border-amber-400/40 shadow-md">
-                      <div className="w-7 h-7 rounded-lg overflow-hidden border border-amber-400/40">
-                        <img
-                          src="/images/hatehatdhori-hero-icon.jpg"
-                          alt="HATE HAT DHORI Women Logo"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <span className="text-[11px] font-extrabold text-amber-950">Hate Hat Dhori Logo</span>
-                    </div>
+
                   </div>
                 </div>
                 <div className="p-3.5 sm:p-4 bg-white/95 backdrop-blur-sm border-t border-amber-100 flex items-center justify-between text-xs text-slate-600">
@@ -240,11 +205,11 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* Who is HATE HAT DHORI for? Mini Card */}
+              {/* Who Can Benefit from HATE HAT DHORI? Mini Card */}
               <div className="p-6 rounded-3xl bg-white border border-amber-200/90 space-y-3 shadow-xs">
                 <h4 className="text-sm font-heading font-bold text-amber-950 flex items-center gap-2">
                   <Briefcase className="w-4 h-4 text-amber-600" />
-                  <span>Who is HATE HAT DHORI For?</span>
+                  <span>Who Can Benefit from HATE HAT DHORI?</span>
                 </h4>
                 <div className="space-y-2">
                   {siteContent.services.targetAudience.categories[2].for.map((item, idx) => (
@@ -254,16 +219,6 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  to="/contact?service=HATE%20HAT%20DHORI"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm shadow-md transition-all duration-200"
-                >
-                  <span>Enquire About HATE HAT DHORI</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
 
@@ -309,35 +264,23 @@ export default function Services() {
       <section className="py-16 sm:py-20 bg-gradient-to-br from-rdcc-navy via-rdcc-navy-light to-rdcc-navy text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-rdcc-cyan/20 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-4">
-              <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-rdcc-cyan-light text-xs font-bold uppercase tracking-wider border border-white/20 inline-block">
-                Institutional Partnership
-              </span>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-white">
-                SARATHI Career Club for Schools & Educational Institutions
-              </h3>
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl">
-                An initiative to create a community of young minds, build career awareness and shape brighter futures. RDCC partners with schools to conduct regular career talks, workshops, and continuous guidance activities.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {siteContent.services.targetAudience.categories[1].for.map((point, pIdx) => (
-                  <div key={pIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
-                    <CheckCircle className="w-4 h-4 text-rdcc-cyan flex-shrink-0" />
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 flex justify-start lg:justify-end">
-              <Link
-                to="/contact?service=SARATHI%20Career%20Club"
-                className="btn-shimmer px-8 py-4 rounded-xl bg-white hover:bg-rdcc-cyan-ice text-rdcc-navy font-bold text-sm sm:text-base shadow-xl transition-all duration-300 flex items-center gap-2"
-              >
-                <span>Partner With RDCC</span>
-                <ArrowRight className="w-4 h-4 text-rdcc-blue" />
-              </Link>
+          <div className="max-w-4xl space-y-4">
+            <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-rdcc-cyan-light text-xs font-bold uppercase tracking-wider border border-white/20 inline-block">
+              Institutional Partnership
+            </span>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-white">
+              SARATHI Career Club for Schools & Educational Institutions
+            </h3>
+            <p className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-3xl">
+              An initiative to create a community of young minds, build career awareness and shape brighter futures. RDCC partners with schools to conduct regular career talks, workshops, and continuous guidance activities.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              {siteContent.services.targetAudience.categories[1].for.map((point, pIdx) => (
+                <div key={pIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+                  <CheckCircle className="w-4 h-4 text-rdcc-cyan flex-shrink-0" />
+                  <span>{point}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -364,6 +307,15 @@ export default function Services() {
                 }`}
               >
                 <div>
+                  {cat.image && (
+                    <div className="w-full h-40 sm:h-48 mb-6 rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm relative group">
+                      <img 
+                        src={cat.image} 
+                        alt={cat.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                  )}
                   <div className="flex items-center justify-between mb-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                       cat.color === 'amber' ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-rdcc-cyan-ice text-rdcc-blue border border-rdcc-cyan/40'
@@ -399,20 +351,6 @@ export default function Services() {
                     ))}
                   </div>
                 </div>
-
-                <div className="mt-8 pt-5 border-t border-slate-100">
-                  <Link
-                    to={`/contact?service=${encodeURIComponent(cat.title)}`}
-                    className={`w-full py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all ${
-                      cat.color === 'amber'
-                        ? 'bg-amber-600 hover:bg-amber-700 text-white'
-                        : 'bg-rdcc-blue hover:bg-rdcc-blue-hover text-white'
-                    }`}
-                  >
-                    <span>Connect For Details</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
               </div>
             ))}
           </div>
@@ -422,7 +360,7 @@ export default function Services() {
       {/* ========================================================================= */}
       {/* HOW DO WE PROVIDE OUR SERVICES? SECTION (PAGE 9 OF BROCHURE VERBATIM)     */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-white via-sky-50/20 to-slate-50/60 border-t border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Delivery Methodology"
@@ -431,54 +369,68 @@ export default function Services() {
             centered={true}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-9 mt-12 sm:mt-16">
             {siteContent.services.serviceDelivery.pillars.map((pillar, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50/70 rounded-3xl p-7 border border-slate-200 hover:bg-white hover:shadow-card transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-card hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-rdcc-cyan-ice text-rdcc-blue border border-rdcc-cyan/40">
-                      {pillar.badge}
-                    </span>
-                    <span className="text-xs font-black text-slate-300">0{idx + 1}</span>
+                {/* Visual Image Header with Floating Badges & Hover Zoom */}
+                <div className="relative w-full aspect-[16/9] overflow-hidden bg-slate-100">
+                  <img
+                    src={pillar.image}
+                    alt={pillar.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent opacity-30 group-hover:opacity-10 transition-opacity duration-500" />
+                  
+                  {/* Floating Pillar Badge */}
+                  <span className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-white/95 backdrop-blur-md text-rdcc-blue shadow-md border border-white/60">
+                    {pillar.badge}
+                  </span>
+
+                  {/* Number Badge */}
+                  <span className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-900/60 backdrop-blur-md text-white font-black text-xs flex items-center justify-center border border-white/20 shadow-md">
+                    0{idx + 1}
+                  </span>
+                </div>
+
+                {/* Content Details */}
+                <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between bg-white">
+                  <div>
+                    <h3 className="text-xl sm:text-[22px] font-heading font-extrabold text-rdcc-navy group-hover:text-rdcc-blue transition-colors duration-300 leading-snug mb-3">
+                      {pillar.title}
+                    </h3>
+
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                      {pillar.content}
+                    </p>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-heading font-extrabold text-rdcc-navy mb-2.5">
-                    {pillar.title}
-                  </h3>
-
-                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                    {pillar.content}
-                  </p>
+                  {/* Interactive Card Footer */}
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <span>Structured Delivery</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-sky-50 text-rdcc-blue group-hover:bg-rdcc-blue group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 shadow-xs">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-400">
-                  <span>Standard Delivery Protocol</span>
-                  <CheckCircle2 className="w-4 h-4 text-rdcc-blue" />
-                </div>
+                {/* Bottom Border Glow on Hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rdcc-blue via-rdcc-cyan to-amber-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
             ))}
           </div>
 
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => openConsultationModal()}
-              className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-rdcc-blue hover:bg-rdcc-blue-hover text-white font-bold text-base shadow-xl shadow-rdcc-blue/25 transition-all duration-200 transform hover:-translate-y-0.5"
-            >
-              <span>Book a Consultation</span>
-              <ArrowUpRight className="w-5 h-5 text-rdcc-cyan-light" />
-            </button>
-
-            <Link
-              to="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-rdcc-navy border-2 border-slate-200 hover:border-rdcc-blue/40 font-semibold text-base shadow-sm transition-all duration-200"
-            >
-              <span>Discuss a Custom Session or Programme</span>
-              <ArrowRight className="w-4 h-4 text-rdcc-blue" />
-            </Link>
+          {/* Delivery Note */}
+          <div className="mt-12 p-5 sm:p-6 rounded-2xl bg-sky-50/80 border border-sky-200/70 text-center max-w-2xl mx-auto shadow-xs">
+            <p className="text-sm sm:text-base font-semibold text-rdcc-navy">
+              "{siteContent.services.serviceDelivery.conclusion}"
+            </p>
           </div>
         </div>
       </section>

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Globe, ArrowRight, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail, ArrowRight, ArrowUpRight, Facebook, Instagram } from "lucide-react";
 import { siteContent } from "../data/content";
+import { WhatsAppIcon } from "./ContactForm";
 
 export default function Footer() {
   const currentYear = 2026;
@@ -57,7 +58,7 @@ export default function Footer() {
               At The Right Direction Career Consultancy, we believe the right guidance at the right time can transform lives. Through guidance, mentoring and training, we help individuals discover their potential, make informed decisions and move forward with clarity and confidence.
             </p>
             <div className="pt-2">
-              <span className="text-xs text-slate-400 block mb-2 font-medium tracking-wide uppercase">
+              <span className="text-xs text-slate-400 block mb-3 font-medium tracking-wide uppercase">
                 Connect on Social Media
               </span>
               <div className="flex items-center gap-3">
@@ -65,27 +66,28 @@ export default function Footer() {
                   href={siteContent.contact.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-rdcc-blue text-white flex items-center justify-center transition-all duration-200 hover:scale-105 border border-white/10"
+                  className="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#1877F2] text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm border border-white/10 hover:border-transparent group"
                   aria-label="RDCC Facebook"
                 >
-                  <span className="font-bold text-sm">f</span>
+                  <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
                 <a
                   href={siteContent.contact.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-gradient-to-tr hover:from-amber-500 hover:to-pink-600 text-white flex items-center justify-center transition-all duration-200 hover:scale-105 border border-white/10"
+                  className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm border border-white/10 hover:border-transparent group"
                   aria-label="RDCC Instagram"
                 >
-                  <span className="font-bold text-sm">ig</span>
+                  <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
                 <a
                   href={`https://wa.me/${siteContent.contact.whatsapp.replace('+', '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-emerald-600/80 hover:bg-emerald-600 text-white text-xs font-medium flex items-center gap-1.5 transition-all duration-200"
+                  className="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm border border-white/10 hover:border-transparent group"
+                  aria-label="WhatsApp Chat"
                 >
-                  <span>WhatsApp Chat</span>
+                  <WhatsAppIcon className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
                 </a>
               </div>
             </div>
@@ -209,17 +211,6 @@ export default function Footer() {
                   className="hover:text-white transition-colors break-all"
                 >
                   {siteContent.contact.email}
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Globe className="w-4 h-4 text-rdcc-cyan flex-shrink-0" />
-                <a
-                  href={siteContent.contact.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  {siteContent.contact.website}
                 </a>
               </div>
             </div>

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import FloatingCTA from "./components/FloatingCTA";
 import ConsultationModal from "./components/ConsultationModal";
 import { ConsultationModalProvider } from "./context/ConsultationModalContext";
 
@@ -32,7 +31,6 @@ export default function App() {
             </Routes>
           </main>
           <Footer />
-          <FloatingCTA />
           <ConsultationModal />
         </div>
       </ConsultationModalProvider>
