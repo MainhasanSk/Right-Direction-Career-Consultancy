@@ -57,7 +57,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center lg:bg-[center_right] hidden md:block pointer-events-none"
           style={{ backgroundImage: "url('/images/hero-illustration.png')" }}
         />
-        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 relative z-10">
+        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-10 sm:pb-16 lg:pt-10 lg:pb-20 relative z-10">
           {/* Right Corner Badge - Government Registration */}
           <div className="absolute top-3.5 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-20">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#0A2540]/15 shadow-sm hover:shadow transition-shadow">
@@ -72,7 +72,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-4 sm:space-y-5 text-left"
+            className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-3.5 sm:space-y-5 text-left"
           >
             {/* Tagline / Kicker */}
             <div className="text-xs sm:text-sm font-bold tracking-[0.22em] text-slate-700 uppercase">
@@ -95,7 +95,7 @@ export default function Home() {
             </p>
             
             {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="pt-1.5 sm:pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
               <Link
                 to="/services"
                 className="px-7 py-3.5 rounded-full bg-[#0A2540] hover:bg-[#143B66] text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group"
@@ -115,11 +115,11 @@ export default function Home() {
             </div>
 
             {/* Bottom Guidance Cards */}
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl xl:max-w-2xl">
+            <div className="pt-1.5 sm:pt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 max-w-xl xl:max-w-2xl">
               {/* SARATHI Card */}
               <Link
                 to="/services#sarathi"
-                className="flex items-center justify-between p-3.5 rounded-2xl bg-[#EBF4FE]/95 backdrop-blur-md hover:bg-[#E1EDFC] border border-[#D5E6F9] transition-all group shadow-sm hover:shadow"
+                className="flex items-center justify-between p-3 sm:p-3.5 rounded-2xl bg-[#EBF4FE]/95 backdrop-blur-md hover:bg-[#E1EDFC] border border-[#D5E6F9] transition-all group shadow-sm hover:shadow"
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="w-10 h-10 rounded-full bg-[#D6E8FB] flex items-center justify-center flex-shrink-0 text-[#0A2540] border border-blue-200">
@@ -142,7 +142,7 @@ export default function Home() {
               {/* HATE HAT DHORI Card */}
               <Link
                 to="/services#hate-hat-dhori"
-                className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FDF0F4]/95 backdrop-blur-md hover:bg-[#FBE4EB] border border-[#F6D8E1] transition-all group shadow-sm hover:shadow"
+                className="flex items-center justify-between p-3 sm:p-3.5 rounded-2xl bg-[#FDF0F4]/95 backdrop-blur-md hover:bg-[#FBE4EB] border border-[#F6D8E1] transition-all group shadow-sm hover:shadow"
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="w-10 h-10 rounded-full bg-[#F9DCE4] flex items-center justify-center flex-shrink-0 text-[#C03A62] border border-pink-200">
