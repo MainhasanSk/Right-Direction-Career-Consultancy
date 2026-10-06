@@ -6,6 +6,7 @@ export const siteContent = {
     tagline: "CAREER GUIDANCE • MENTORING • COMMUNITY INITIATIVES",
     motto: "We Guide You For A Better Future",
     established: "Estd. 2020",
+    registration: "Registered MSME | Government of India",
     logo: "/images/Logo.jpeg",
   },
 

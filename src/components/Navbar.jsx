@@ -47,7 +47,11 @@ export default function Navbar() {
             <span className="text-slate-400">|</span>
             <span className="text-slate-300 font-medium">Guwahati, Assam</span>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4 sm:gap-5">
+            <span className="hidden lg:inline-flex items-center gap-1.5 text-amber-300 font-semibold text-[11px] bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded">
+              Registered MSME | Government of India
+            </span>
+            <span className="text-slate-500 hidden lg:inline">•</span>
             <a
               href={`tel:${siteContent.contact.phones[0]}`}
               className="flex items-center gap-1.5 hover:text-white transition-colors"

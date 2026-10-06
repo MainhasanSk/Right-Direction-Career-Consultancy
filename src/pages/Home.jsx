@@ -57,7 +57,17 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center lg:bg-[center_right] hidden md:block pointer-events-none"
           style={{ backgroundImage: "url('/images/hero-illustration.png')" }}
         />
-        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 relative z-10">
+        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 relative z-10">
+          {/* Right Corner Badge - Government Registration */}
+          <div className="absolute top-3.5 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#0A2540]/15 shadow-sm hover:shadow transition-shadow">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-emerald-200 flex-shrink-0 animate-pulse" />
+              <span className="text-[11px] sm:text-xs md:text-sm font-bold text-[#0A2540] tracking-wide">
+                Registered MSME <span className="text-slate-300 font-normal mx-0.5 sm:mx-1">|</span> Government of India
+              </span>
+            </div>
+          </div>
+
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,14 +76,14 @@ export default function Home() {
           >
             {/* Tagline / Kicker */}
             <div className="text-xs sm:text-sm font-bold tracking-[0.22em] text-slate-700 uppercase">
-              GUIDANCE TODAY
+              WE GUIDE YOU
             </div>
             
             {/* Main Headline */}
             <div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-[70px] font-extrabold font-heading leading-[1.02] tracking-tight">
-                <span className="text-[#0A2540] block">A BRIGHTER</span>
-                <span className="text-[#2583E8] block mt-1">TOMORROW</span>
+                <span className="text-[#0A2540] block">FOR A BETTER</span>
+                <span className="text-[#2583E8] block mt-1">FUTURE</span>
               </h1>
               {/* Gold Accent Underline */}
               <div className="w-40 sm:w-56 h-[3.5px] bg-[#E8A025] rounded-full mt-3 mb-2"></div>
