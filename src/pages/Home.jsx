@@ -57,12 +57,12 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center lg:bg-[center_right] hidden md:block pointer-events-none"
           style={{ backgroundImage: "url('/images/hero-illustration.png')" }}
         />
-        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-10 sm:pb-16 lg:pt-10 lg:pb-20 relative z-10">
+        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-8 pb-5 sm:pb-16 lg:pt-10 lg:pb-20 relative z-10">
           {/* Right Corner Badge - Government Registration */}
-          <div className="absolute top-3.5 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-20">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#0A2540]/15 shadow-sm hover:shadow transition-shadow">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-emerald-200 flex-shrink-0 animate-pulse" />
-              <span className="text-[11px] sm:text-xs md:text-sm font-bold text-[#0A2540] tracking-wide">
+          <div className="absolute top-2.5 right-3.5 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-20">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#0A2540]/15 shadow-sm hover:shadow transition-shadow">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500 ring-2 ring-emerald-200 flex-shrink-0 animate-pulse" />
+              <span className="text-[10px] sm:text-xs md:text-sm font-bold text-[#0A2540] tracking-wide">
                 Registered MSME <span className="text-slate-300 font-normal mx-0.5 sm:mx-1">|</span> Government of India
               </span>
             </div>
@@ -72,7 +72,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-3.5 sm:space-y-5 text-left"
+            className="max-w-2xl lg:max-w-xl xl:max-w-2xl space-y-3.5 sm:space-y-5 text-left pt-2 sm:pt-0"
           >
             {/* Tagline / Kicker */}
             <div className="text-xs sm:text-sm font-bold tracking-[0.22em] text-slate-700 uppercase">
