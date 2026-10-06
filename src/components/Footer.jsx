@@ -219,15 +219,25 @@ export default function Footer() {
       </div>
 
       {/* Bottom Sub-Footer with Copyright */}
-      <div className="relative border-t border-white/10 py-5 px-4 text-center text-xs text-slate-400 bg-rdcc-navy-dark/70">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="relative border-t border-white/10 py-5 px-4 text-xs text-slate-400 bg-rdcc-navy-dark/70">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
           <p>© {currentYear} {siteContent.brand.name}. All Rights Reserved.</p>
-          <div className="flex items-center gap-4 text-slate-400">
-            <span>Guwahati, Assam</span>
-            <span>•</span>
-            <span className="text-rdcc-gold">{siteContent.brand.established}</span>
-            <span>•</span>
-            <span className="text-rdcc-cyan-light font-medium">{siteContent.brand.motto}</span>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2.5 sm:gap-3 text-slate-400">
+            <span className="hidden sm:inline">Guwahati, Assam</span>
+            <span className="hidden sm:inline">•</span>
+            <span className="text-rdcc-gold hidden sm:inline">{siteContent.brand.established}</span>
+            <span className="hidden sm:inline">•</span>
+            <p>
+              Design and Develop by{" "}
+              <a
+                href="https://ramdhenudigisolution.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-rdcc-cyan-light hover:text-white font-medium underline underline-offset-2 transition-colors"
+              >
+                Ramdhenu Digi Solution
+              </a>
+            </p>
           </div>
         </div>
       </div>
